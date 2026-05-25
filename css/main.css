@@ -1,0 +1,27 @@
+.gcontainer {
+    width: 100% !important;
+}
+.gslide-media {
+    width: 55vw !important;
+}
+
+.gslide-image img {
+    height: 55vh !important;
+    border-radius: 12px 12px 0 0;
+}
+.gslide-description {
+    background: #111;
+    padding: 20px;
+    border-radius: 0 0 12px 12px;
+}
+
+.gslide-title {
+    width: 55vw !important;
+    font-size: 24px !important;
+    font-weight: bold;
+}
+
+.gslide-desc {
+    font-size: 15px !important;
+    line-height: 1.7;
+}

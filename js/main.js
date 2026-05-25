@@ -112,6 +112,15 @@
         loop: true,
         items: 1
     });
+
+    // GLightbox
+    const lightbox = GLightbox({
+        selector: '.glightbox',
+        touchNavigation: true,
+        loop: true,
+        zoomable: true,
+        autoplayVideos: true
+    });
     
 })(jQuery);
 

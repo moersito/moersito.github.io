@@ -19,11 +19,13 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="lib/owlcarousel/assets/owl.carousel.min.css">
+    <!--link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet"-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
 <body data-spy="scroll" data-target=".navbar" data-offset="51">
@@ -89,7 +91,7 @@
                     <div class="d-flex align-items-center justify-content-center justify-content-lg-start pt-5">
                         <a href="docs/CV MursitoDwi 2023 v1.1_DevOpsSolArc-1.pdf" target="_blank" class="btn btn-outline-light mr-5">Download CV</a>
                         <button type="button" class="btn-play" data-toggle="modal"
-                            data-src="#" data-target="#videoModal">
+                            data-src="https://www.youtube.com/embed/7hZvjmmBKpE" data-target="#videoModal">
                             <span></span>
                         </button>
                         <h5 class="font-weight-normal text-white m-0 ml-4 d-none d-sm-block">Play Video</h5>
@@ -152,7 +154,7 @@
                 <h1 class="display-1 text-uppercase text-white" style="-webkit-text-stroke: 1px #dee2e6;">Quality</h1>
                 <h1 class="position-absolute text-uppercase text-primary">Education & Expericence</h1>
             </div>
-            <div class="row align-items-center">
+            <div class="row align-items-start">
                 <div class="col-lg-6">
                     <h3 class="mb-4">My Education</h3>
                     <div class="border-left border-primary pt-2 pl-4 ml-2">
@@ -209,6 +211,18 @@
                 <div class="col-lg-6">
                     <h3 class="mb-4">My Expericence</h3>
                     <div class="border-left border-primary pt-2 pl-4 ml-2">
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1">Solution Architect</h5>
+                            <p class="mb-2"><strong>GrintByte Global</strong> | <small>2023 - Present</small></p>
+                            <p>Design and architect scalable digital solutions for web, mobile, cloud, and enterprise systems aligned with business objectives and technical requirements. Lead solution planning, system integration strategies, infrastructure architecture, and technical decision-making across multiple projects. Collaborate with stakeholders and development teams to deliver secure, efficient, maintainable, and future-ready technology solutions including DevSecOps practices, cloud-native infrastructure, AI-driven systems, and enterprise application modernization.</p>
+                        </div>
+                        <div class="position-relative mb-4">
+                            <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
+                            <h5 class="font-weight-bold mb-1">AI Implementation Consultant</h5>
+                            <p class="mb-2"><strong>SMLTech</strong> | <small>2022 - Present</small></p>
+                            <p>Design and implement AI-driven solutions and intelligent automation strategies to help organizations improve operational efficiency, business decision-making, and digital transformation initiatives. Analyze business requirements, identify AI adoption opportunities, and deliver scalable solutions including machine learning integration, predictive analytics, workflow automation, and AI-assisted systems. Collaborate with stakeholders, technical teams, and business units to ensure practical, secure, and impactful AI implementations aligned with organizational goals and future technology strategies.</p>
+                        </div>
                         <div class="position-relative mb-4">
                             <i class="far fa-dot-circle text-primary position-absolute" style="top: 2px; left: -32px;"></i>
                             <h5 class="font-weight-bold mb-1">Cloud Engineer</h5>
@@ -531,10 +545,11 @@
                 <div class="col-12 text-center mb-2">
                     <ul class="list-inline mb-4" id="portfolio-flters">
                         <li class="btn btn-sm btn-outline-primary m-1 active"  data-filter="*">All</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">Design</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Development</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">DevOps</li>
-                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">SEO</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".first">E-Commerce</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".second">Software</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".third">Integration</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".fourth">DevSecOps</li>
+                        <li class="btn btn-sm btn-outline-primary m-1" data-filter=".fifth">AI</li>
                     </ul>
                 </div>
             </div>
@@ -543,7 +558,11 @@
                     <div class="position-relative overflow-hidden mb-2">
                         <img class="img-fluid rounded w-100" src="img/portfolio-1.jpg" alt="">
                         <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-1.jpg" data-lightbox="portfolio">
+                            <!--a href="img/portfolio-1.jpg" data-lightbox="portfolio"-->
+                            <a href="img/portfolio-1.jpg" class="glightbox"
+                               data-gallery="portfolio-gallery"
+                               data-title="E-Commerce Solutions"
+                               data-description="Custom e-commerce platform with WooCommerce integration, quote system, and regional pricing support.">
                                 <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
                             </a>
                         </div>
@@ -553,7 +572,11 @@
                     <div class="position-relative overflow-hidden mb-2">
                         <img class="img-fluid rounded w-100" src="img/portfolio-2.jpg" alt="">
                         <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-2.jpg" data-lightbox="portfolio">
+                            <!--a href="img/portfolio-2.jpg" data-lightbox="portfolio"-->
+                            <a href="img/portfolio-2.jpg" class="glightbox"
+                               data-gallery="portfolio-gallery"
+                               data-title="E-Commerce Solutions"
+                               data-description="Custom e-commerce platform with WooCommerce integration, quote system, and regional pricing support.">
                                 <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
                             </a>
                         </div>
@@ -563,7 +586,11 @@
                     <div class="position-relative overflow-hidden mb-2">
                         <img class="img-fluid rounded w-100" src="img/portfolio-3.jpg" alt="">
                         <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-3.jpg" data-lightbox="portfolio">
+                            <!-- <a href="img/portfolio-3.jpg" data-lightbox="portfolio"> -->
+                            <a href="img/portfolio-3.jpg" class="glightbox"
+                               data-gallery="portfolio-gallery"
+                               data-title="E-Commerce Solutions"
+                               data-description="Custom e-commerce platform with WooCommerce integration, quote system, and regional pricing support.">
                                 <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
                             </a>
                         </div>
@@ -573,7 +600,11 @@
                     <div class="position-relative overflow-hidden mb-2">
                         <img class="img-fluid rounded w-100" src="img/portfolio-4.jpg" alt="">
                         <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-4.jpg" data-lightbox="portfolio">
+                            <!-- <a href="img/portfolio-4.jpg" data-lightbox="portfolio"> -->
+                            <a href="img/portfolio-4.jpg" class="glightbox"
+                               data-gallery="portfolio-gallery"
+                               data-title="E-Commerce Solutions"
+                               data-description="Custom e-commerce platform with WooCommerce integration, quote system, and regional pricing support.">
                                 <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
                             </a>
                         </div>
@@ -583,17 +614,39 @@
                     <div class="position-relative overflow-hidden mb-2">
                         <img class="img-fluid rounded w-100" src="img/portfolio-5.jpg" alt="">
                         <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-5.jpg" data-lightbox="portfolio">
+                            <!-- <a href="img/portfolio-5.jpg" data-lightbox="portfolio"> -->
+                            <a href="img/portfolio-5.jpg" class="glightbox"
+                               data-gallery="portfolio-gallery"
+                               data-title="E-Commerce Solutions"
+                               data-description="Custom e-commerce platform with WooCommerce integration, quote system, and regional pricing support.">
                                 <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 portfolio-item third">
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item fourth">
                     <div class="position-relative overflow-hidden mb-2">
                         <img class="img-fluid rounded w-100" src="img/portfolio-6.jpg" alt="">
                         <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
-                            <a href="img/portfolio-6.jpg" data-lightbox="portfolio">
+                            <!-- <a href="img/portfolio-6.jpg" data-lightbox="portfolio"> -->
+                            <a href="img/portfolio-6.jpg" class="glightbox"
+                               data-gallery="portfolio-gallery"
+                               data-title="E-Commerce Solutions"
+                               data-description="Custom e-commerce platform with WooCommerce integration, quote system, and regional pricing support.">
+                                <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4 portfolio-item fifth">
+                    <div class="position-relative overflow-hidden mb-2">
+                        <img class="img-fluid rounded w-100" src="img/portfolio-6.jpg" alt="">
+                        <div class="portfolio-btn bg-primary d-flex align-items-center justify-content-center">
+                            <!-- <a href="img/portfolio-6.jpg" data-lightbox="portfolio"> -->
+                            <a href="img/portfolio-6.jpg" class="glightbox"
+                               data-gallery="portfolio-gallery"
+                               data-title="E-Commerce Solutions"
+                               data-description="Custom e-commerce platform with WooCommerce integration, quote system, and regional pricing support.">
                                 <i class="fa fa-plus text-white" style="font-size: 60px;"></i>
                             </a>
                         </div>
@@ -778,7 +831,8 @@
     <script src="lib/waypoints/waypoints.min.js"></script>
     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
     <script src="lib/isotope/isotope.pkgd.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <!--script src="lib/lightbox/js/lightbox.min.js"></script-->
+    <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
