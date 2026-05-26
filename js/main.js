@@ -1,3 +1,84 @@
+// Vanila JS
+const form =
+    document.getElementById("contactForm");
+
+// Set timestamp saat halaman load
+document.getElementById("formTime").value =
+    Date.now();
+
+form.addEventListener("submit", function(e){
+
+    // VALIDASI HTML5
+    if (!form.checkValidity()) {
+
+        return;
+    }
+
+    // Honeypot check
+    const honeypot =
+        document.getElementById("website").value;
+
+    if(honeypot !== ""){
+
+        e.preventDefault();
+
+        Swal.fire({
+            icon: 'error',
+            title: 'Spam Detected',
+            text: 'Submission blocked.'
+        });
+
+        return false;
+    }
+
+    // Time trap check
+    const start =
+        document.getElementById("formTime").value;
+
+    const seconds =
+        (Date.now() - start) / 1000;
+
+    if(seconds < 3){
+
+        e.preventDefault();
+
+        Swal.fire({
+            icon: 'warning',
+            title: 'Too Fast',
+            text: 'Please wait a few seconds before submitting.'
+        });
+
+        return false;
+    }
+
+    // SUCCESS POPUP
+    setTimeout(() => {
+
+        Swal.fire({
+            icon: 'success',
+            title: 'Message Sent!',
+            text: 'Thank you for contacting us.',
+            timer: 3000,
+            showConfirmButton: false
+        });
+
+    }, 500);
+
+    // RESET FORM SETELAH REQUEST SELESAI
+    setTimeout(() => {
+
+        form.reset();
+
+        // reset timestamp lagi
+        document.getElementById("formTime").value =
+            Date.now();
+
+    }, 2000);
+
+});
+
+
+// jQuery
 (function ($) {
     "use strict";
 
@@ -123,4 +204,6 @@
     });
     
 })(jQuery);
+
+
 

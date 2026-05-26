@@ -755,35 +755,79 @@
                 <div class="col-lg-8">
                     <div class="contact-form text-center">
                         <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate">
+                        <form 
+                            action="https://docs.google.com/forms/d/e/1FAIpQLSeMM4HMos9rS6YRq-vw1UG0Itgi_FJJUV2hmE5xtmUEvfFfZw/formResponse"
+                            method="POST"
+                            target="hidden_iframe"
+                            name="sentMessage" 
+                            id="contactForm" 
+                            novalidate="novalidate">
+
+                            <!-- Timestamp Trap -->
+                            <input type="hidden" id="formTime"/>
+                            <!-- Honeypot -->
+                            <div style="display:none;">
+                                <input type="text"
+                                    id="website"
+                                    name="website"
+                                    tabindex="-1"
+                                    autocomplete="off"/>
+                            </div>
+
+
                             <div class="form-row">
                                 <div class="control-group col-sm-6">
-                                    <input type="text" class="form-control p-4" id="name" placeholder="Your Name"
+                                    <input 
+                                        name="entry.2083334051"
+                                        type="text" 
+                                        class="form-control p-4" 
+                                        id="name" 
+                                        placeholder="Your Name"
                                         required="required" data-validation-required-message="Please enter your name" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="control-group col-sm-6">
-                                    <input type="email" class="form-control p-4" id="email" placeholder="Your Email"
-                                        required="required" data-validation-required-message="Please enter your email" />
+                                    <input 
+                                        name="entry.1210909308"
+                                        type="email" 
+                                        class="form-control p-4" 
+                                        id="email" 
+                                        placeholder="Your Email"
+                                        required="required" 
+                                        data-validation-required-message="Please enter your email" />
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
                             <div class="control-group">
-                                <input type="text" class="form-control p-4" id="subject" placeholder="Subject"
-                                    required="required" data-validation-required-message="Please enter a subject" />
+                                <input 
+                                    name="entry.1692919835"
+                                    type="text" 
+                                    class="form-control p-4" 
+                                    id="subject" 
+                                    placeholder="Subject"
+                                    required="required" 
+                                    data-validation-required-message="Please enter a subject" />
                                 <p class="help-block text-danger"></p>
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control py-3 px-4" rows="5" id="message" placeholder="Message"
+                                <textarea 
+                                    name="entry.1119020099"
+                                    class="form-control py-3 px-4" 
+                                    rows="5" id="message" 
+                                    placeholder="Message"
                                     required="required"
                                     data-validation-required-message="Please enter your message"></textarea>
                                 <p class="help-block text-danger"></p>
-                            </div>
+                            </div>    
+
                             <div>
                                 <button class="btn btn-outline-primary" type="submit" id="sendMessageButton">Send
                                     Message</button>
                             </div>
                         </form>
+                        <iframe 
+                            name="hidden_iframe"
+                            style="display:none;"></iframe>
                     </div>
                 </div>
             </div>
@@ -836,7 +880,10 @@
 
     <!-- Contact Javascript File -->
     <script src="mail/jqBootstrapValidation.min.js"></script>
-    <script src="mail/contact.js"></script>
+    <!-- <script src="mail/contact.js"></script> -->
+
+    <!-- Alerting -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
