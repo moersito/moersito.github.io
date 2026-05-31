@@ -78,6 +78,58 @@ form.addEventListener("submit", function(e){
 });
 
 
+document.querySelectorAll('.select-service').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    // ambil h4 di container yang sama
+    const serviceName = this.closest('.col-lg-4, .col-md-6')
+      .querySelector('h4')
+      .innerText;
+
+    // isi subject
+    const subjectInput = document.getElementById('subject');
+    if (subjectInput) {
+      subjectInput.value = `Inquiry: ${serviceName}`;
+      subjectInput.focus();
+    }
+
+    // scroll ke contact form
+    document.getElementById('contact')?.scrollIntoView({
+      behavior: 'smooth'
+    });
+  });
+});
+
+
+// var iso = new Isotope('.grid', {
+//   itemSelector: '.grid-item',
+//   layoutMode: 'fitRows'
+// });
+
+// let visibleCount = 8; // misalnya 2 baris awal (3 kolom x 2)
+
+// function updateItems() {
+//   iso.arrange({
+//     filter: function (itemElem, index) {
+//       return index < visibleCount;
+//     }
+//   });
+// }
+
+// updateItems();
+
+// document.querySelector('#ShowMorePortfolioPortFolio').addEventListener('click', () => {
+//   visibleCount += 8; // tambah 2 baris lagi
+//   updateItems();
+
+//   // optional: hide button kalau sudah habis
+//   if (visibleCount >= iso.getItemElements().length) {
+//     document.querySelector('#ShowMorePortfolioPortFolio').style.display = 'none';
+//   }
+// });
+
+
 // jQuery
 (function ($) {
     "use strict";
@@ -168,6 +220,38 @@ form.addEventListener("submit", function(e){
         $(this).addClass('active');
 
         portfolioIsotope.isotope({filter: $(this).data('filter')});
+
+        resetShowMorePortfolio();
+    });
+
+    let showCountPortfolio = 8; // 2 baris awal (misal 3 kolom x 2)
+    let allItemsPortfolio = $('.portfolio-item');
+
+    function applyShowMorePortfolio() {
+        portfolioIsotope.isotope({
+            filter: function () {
+                let index = $(this).index();
+                return index < showCountPortfolio;
+            }
+        });
+    }
+
+    function resetShowMorePortfolio() {
+        showCountPortfolio = 8;
+        applyShowMorePortfolio();
+        $('#showMorePortfolio').show();
+    }
+
+    applyShowMorePortfolio();
+
+    $('#showMorePortfolio').on('click', function () {
+        showCountPortfolio += 8; // tambah 2 baris
+
+        applyShowMorePortfolio();
+
+        if (showCountPortfolio >= allItemsPortfolio.length) {
+            $(this).hide();
+        }
     });
 
     // Collaboration isotope and filter
