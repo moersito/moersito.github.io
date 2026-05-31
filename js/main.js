@@ -169,6 +169,18 @@ form.addEventListener("submit", function(e){
 
         portfolioIsotope.isotope({filter: $(this).data('filter')});
     });
+
+    // Collaboration isotope and filter
+    var collaborationIsotope = $('.collaboration-container').isotope({
+        itemSelector: '.collaboration-item',
+        layoutMode: 'fitRows'
+    });
+    $('#collaboration-flters li').on('click', function () {
+        $("#collaboration-flters li").removeClass('active');
+        $(this).addClass('active');
+
+        collaborationIsotope.isotope({filter: $(this).data('filter')});
+    });
     
     
     // Back to top button
