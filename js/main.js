@@ -209,7 +209,7 @@ document.querySelectorAll('.select-service').forEach(btn => {
     // Portfolio isotope and filter: Start
     // ===================================
     // Config 
-    var itemsPerPagePortfolio = 4;
+    var itemsPerPagePortfolio = 8;
     var showCountPortfolio = itemsPerPagePortfolio;
     var currentFilterPortfolio = '*';
 
