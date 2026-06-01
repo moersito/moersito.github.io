@@ -1,4 +1,6 @@
+// ====================================
 // Vanila JS
+// ====================================
 const form =
     document.getElementById("contactForm");
 
@@ -7,10 +9,8 @@ document.getElementById("formTime").value =
     Date.now();
 
 form.addEventListener("submit", function(e){
-
     // VALIDASI HTML5
     if (!form.checkValidity()) {
-
         return;
     }
 
@@ -19,15 +19,12 @@ form.addEventListener("submit", function(e){
         document.getElementById("website").value;
 
     if(honeypot !== ""){
-
         e.preventDefault();
-
         Swal.fire({
             icon: 'error',
             title: 'Spam Detected',
             text: 'Submission blocked.'
         });
-
         return false;
     }
 
@@ -39,15 +36,12 @@ form.addEventListener("submit", function(e){
         (Date.now() - start) / 1000;
 
     if(seconds < 3){
-
         e.preventDefault();
-
         Swal.fire({
             icon: 'warning',
             title: 'Too Fast',
             text: 'Please wait a few seconds before submitting.'
         });
-
         return false;
     }
 
@@ -76,7 +70,6 @@ form.addEventListener("submit", function(e){
     }, 2000);
 
 });
-
 
 document.querySelectorAll('.select-service').forEach(btn => {
   btn.addEventListener('click', function(e) {
@@ -130,7 +123,9 @@ document.querySelectorAll('.select-service').forEach(btn => {
 // });
 
 
-// jQuery
+// ====================================
+//  jQuery
+// ====================================
 (function ($) {
     "use strict";
 
@@ -210,51 +205,95 @@ document.querySelectorAll('.select-service').forEach(btn => {
     }, {offset: '80%'});
 
 
-    // Portfolio isotope and filter
+    // ===================================
+    // Portfolio isotope and filter: Start
+    // ===================================
+    // Config 
+    var itemsPerPagePortfolio = 4;
+    var showCountPortfolio = itemsPerPagePortfolio;
+    var currentFilterPortfolio = '*';
+
+    // Init Isotope
     var portfolioIsotope = $('.portfolio-container').isotope({
         itemSelector: '.portfolio-item',
         layoutMode: 'fitRows'
     });
-    $('#portfolio-flters li').on('click', function () {
-        $("#portfolio-flters li").removeClass('active');
-        $(this).addClass('active');
 
-        portfolioIsotope.isotope({filter: $(this).data('filter')});
+    // Apply filter & show more
+    function applyFilterPortfolio() {
 
-        resetShowMorePortfolio();
-    });
+        var visibleIndex = 0;
 
-    let showCountPortfolio = 8; // 2 baris awal (misal 3 kolom x 2)
-    let allItemsPortfolio = $('.portfolio-item');
-
-    function applyShowMorePortfolio() {
         portfolioIsotope.isotope({
             filter: function () {
-                let index = $(this).index();
-                return index < showCountPortfolio;
+
+                var $item = $(this);
+
+                // cek apakah item cocok dengan filter aktif
+                var matchFilterPortfolio =
+                    currentFilterPortfolio === '*' ||
+                    $item.is(currentFilterPortfolio);
+
+                if (!matchFilterPortfolio) {
+                    return false;
+                }
+
+                // tampilkan hanya sejumlah showCount
+                visibleIndex++;
+
+                return visibleIndex <= showCountPortfolio;
             }
         });
-    }
 
-    function resetShowMorePortfolio() {
-        showCountPortfolio = 8;
-        applyShowMorePortfolio();
-        $('#showMorePortfolio').show();
-    }
+        // hitung total item yang cocok dengan filter
+        var totalFilteredItemsPortfolio = $('.portfolio-item').filter(function () {
+            return currentFilterPortfolio === '*' || $(this).is(currentFilterPortfolio);
+        }).length;
 
-    applyShowMorePortfolio();
-
-    $('#showMorePortfolio').on('click', function () {
-        showCountPortfolio += 8; // tambah 2 baris
-
-        applyShowMorePortfolio();
-
-        if (showCountPortfolio >= allItemsPortfolio.length) {
-            $(this).hide();
+        // show/hide tombol
+        if (showCountPortfolio >= totalFilteredItemsPortfolio) {
+            $('#showMorePortfolio').hide();
+        } else {
+            $('#showMorePortfolio').show();
         }
+    }
+
+    // Filter click
+    $('#portfolio-flters li').on('click', function () {
+
+        $('#portfolio-flters li').removeClass('active');
+        $(this).addClass('active');
+
+        currentFilterPortfolio = $(this).data('filter');
+
+        // reset ke halaman pertama
+        showCountPortfolio = itemsPerPagePortfolio;
+
+        applyFilterPortfolio();
     });
 
-    // Collaboration isotope and filter
+    // Show more click
+    $('#showMorePortfolio').on('click', function () {
+
+        showCountPortfolio += itemsPerPagePortfolio;
+
+        applyFilterPortfolio();
+
+        // refresh layout isotope
+        portfolioIsotope.isotope('layout');
+    });
+
+    // Init load
+    applyFilterPortfolio();
+    
+    // ===================================
+    // Portfolio isotope and filter: End
+    // ===================================
+
+
+    // ===================================
+    // Collaboration isotope and filter: Start
+    // ===================================
     var collaborationIsotope = $('.collaboration-container').isotope({
         itemSelector: '.collaboration-item',
         layoutMode: 'fitRows'
@@ -265,9 +304,14 @@ document.querySelectorAll('.select-service').forEach(btn => {
 
         collaborationIsotope.isotope({filter: $(this).data('filter')});
     });
+    // ===================================
+    // Collaboration isotope and filter: End
+    // ===================================
     
     
-    // Back to top button
+    // ===================================
+    // Back to top button: Start
+    // ===================================
     $(window).scroll(function () {
         if ($(this).scrollTop() > 200) {
             $('.back-to-top').fadeIn('slow');
@@ -279,6 +323,9 @@ document.querySelectorAll('.select-service').forEach(btn => {
         $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
         return false;
     });
+    // ===================================
+    // Back to top button: End
+    // ===================================
 
 
     // Testimonials carousel
